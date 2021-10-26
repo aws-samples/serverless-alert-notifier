@@ -1,0 +1,19 @@
+site_name: Serverless Alert Notifier
+site_url: 'https://awslabs.github.io/realtime-fraud-detection-with-gnn-on-dgl/'
+repo_url: 'https://github.com/aws-samples/serverless-alert-notifier'
+theme:
+  name: material
+  features:
+    - tabs
+    - search.suggest
+    - search.highlight
+plugins:
+  - search
+extra:
+  alternate:
+    - name: English
+      link: /serverless-alert-notifier/en/
+      lang: en
+    - name: 简体中文
+      link: /serverless-alert-notifier/zh/
+      lang: zh-CN

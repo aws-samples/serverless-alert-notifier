@@ -7,3 +7,9 @@ All notable changes to this project will be documented in this file. See [standa
 - All files, initial version
 - Support 2 EventBridge Rule: EC2 State-Change, Health Change
 - Support 1 notification platform: Wechat
+
+## [1.0.1] - 2021-10-26
+### Added
+- Deployment Document
+### Changed
+- Use CMK for SNS to imporve security

@@ -50,13 +50,30 @@ export class NotifierStack extends cdk.Stack {
       type: "String",
     })
 
-    // Import the default SNS KMS key
-    const notifierTopicKMS = kms.Alias.fromAliasName(this, 'NotifierKMSKey', 'alias/aws/sns');
+    // Create a KMS CMK for SNS
+    const notifierTopicCMK = new kms.Key(this, 'NotifierTopicKey', {
+      enableKeyRotation: true,
+      description: "Serverless Alert Notifier SNS Topic CMK",
+      enabled: true
+    });
+    notifierTopicCMK.addToResourcePolicy(
+      new PolicyStatement({
+        effect: Effect.ALLOW,
+        principals: [
+          new ServicePrincipal("events.amazonaws.com")
+        ],
+        actions: [
+          "kms:GenerateDataKey*",
+          "kms:Decrypt"
+        ],
+        resources: [`*`],
+      })
+    )
 
     // Create SNS topic for notification
     const notifierTopic = new sns.Topic(this, 'NotifierTopic', {
       displayName: 'Serverless Alert Notifier subscription topic',
-      masterKey: notifierTopicKMS,
+      masterKey: notifierTopicCMK,
     });
 
     // Create IAM Role for lambda function

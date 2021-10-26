@@ -1,0 +1,10 @@
+INHERIT: ./mkdocs.base.yml
+site_name: 无服务器告警推送方案部署文档
+site_description: 帮助客户将AWS服务告警信息推送到中国客户常用的IM平台
+docs_dir: zh
+site_dir: ./site/zh
+theme:
+  language: zh
+nav:
+  - 方案介绍: introduction.md
+  - 部署手册: deployment.md
