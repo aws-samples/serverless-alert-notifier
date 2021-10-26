@@ -5,4 +5,3 @@ theme:
   language: en
 nav:
   - Introduction: introduction.md
-  - Deployment: deployment.md
