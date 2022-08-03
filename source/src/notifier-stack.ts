@@ -124,7 +124,6 @@ export class NotifierStack extends cdk.Stack {
       handler: 'lambda_handler',
       runtime: lambda.Runtime.PYTHON_3_8,
       role: notifierFunctionRole,
-      reservedConcurrentExecutions: 100,
       environment: {
         ["CORPID_ARN"]: corpID.value.toString(),
         ["AGENTID_ARN"]: agentID.value.toString(),
